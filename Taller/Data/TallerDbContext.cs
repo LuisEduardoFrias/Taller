@@ -5,6 +5,8 @@ namespace Taller.Data
 {
     public class TallerDbContext:DbContext
     {
+        string _connectionString;
+
         public DbSet<Auto> Autos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Mecanico> Mecanicos { get; set; }
@@ -12,9 +14,22 @@ namespace Taller.Data
         public DbSet<Servicio> Servicios { get; set; }
         public DbSet<TipoMecanico> TiposMecanico { get; set; }
 
-        public TallerDbContext():base()
-        {
 
+        public TallerDbContext(string connectionString):base()
+        {
+            _connectionString = connectionString;
+        }
+
+
+        public TallerDbContext() : base()
+        {
+        }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+           optionsBuilder.UseSqlServer(_connectionString);
+            //optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
         }
 
     }

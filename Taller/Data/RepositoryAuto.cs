@@ -12,7 +12,7 @@ namespace Taller.Data
     {
 
         private static RepositoryAuto Instance;
-        private readonly TallerDbContext _context;
+        private TallerDbContext _context;
         private readonly IMapper _mappear;
 
 
@@ -26,6 +26,8 @@ namespace Taller.Data
         {
             if (Instance is null)
                 Instance = new RepositoryAuto(context,mapper);
+
+            Instance._context = context;
 
             return Instance;
         }

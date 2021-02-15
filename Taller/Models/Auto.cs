@@ -14,19 +14,19 @@ namespace Taller.Models
         [Required]
         public string Marca { get; set; }
 
-        [Column(TypeName = "50")]
+        [Column(TypeName = "varchar(50)")]
         [Required]
         public string Modelos { get; set; }
 
-        [Column(TypeName = "4")]
+        [Column(TypeName = "tinyint")]
         [Required]
         public int Años { get; set; }
 
-        [Column(TypeName = "20")]
+        [Column(TypeName = "varchar(20)")]
         [Required]
         public string Color { get; set; }
 
-        [Column(TypeName = "10")]
+        [Column(TypeName = "varchar(10)")]
         [Required]
         public string Placa { get; set; }
 

@@ -1,15 +1,23 @@
 ﻿
 @{
-   ViewBag.Title = "Home";
+    ViewBag.Title = "Home";
 }
 
-<h2>Bienvenido al Taller RRL</h2> <hr />
+<h2>Bienvenido al Taller RRL</h2>
+<hr />
 
-<div style="width:70%; height:60%;">
+<div style="width:100%; height:100%; display: inline-block; align-content:center;">
 
-    @Html.ActionLink("Ver listado de autos", "GetListAuto", "Auto",null, new { @class = "btn btn-default", @style = "border-radius:20px; padding:40px,6px;"})
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE AUTO", "GetListAuto", "Auto"))
+
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE CIENTES", "GetListAuto", "Cliente"))
+
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE MECANICO", "GetListAuto", "Mecanico"))
+
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LAS ORDENES", "GetListAuto", "Orden"))
+
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LOS SERVICIOS", "GetListAuto", "Servicio"))
+
+    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LOS TIPOS DE MECANICO", "GetListAuto", "TipoMecanico"))
 
 </div>
-
-
-

@@ -12,6 +12,8 @@ namespace Taller.Controllers
         private readonly TallerDbContext _context;
         private readonly IMapper _mapper;
 
+        
+
         public AutoController(TallerDbContext context, IMapper mapper)
         {
             _context = context;

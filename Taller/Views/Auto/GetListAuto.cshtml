@@ -4,5 +4,60 @@
     ViewBag.Title = "GetListAuto";
 }
 
-<h2>GetListAuto</h2>
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">AUTO</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("MARCA")</td>
+            <td>@Html.Label("MODELO")</td>
+            <td>@Html.Label("AÑO")</td>
+            <td>@Html.Label("COLOR")</td>
+            <td>@Html.Label("PLACA")</td>
+            <td>@Html.Label("CLIENTE")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (Taller.Dtos.ShowAutoDto auto in Model)
+        {
+            <tr>
+
+                <td> @auto.Marca </td>
+                <td> @auto.Modelos </td>
+                <td> @auto.Años </td>
+                <td> @auto.Color </td>
+                <td> @auto.Placa </td>
+                <td> cliente tal@*@auto.Cliente.Nombre*@ </td>
+                <td> @Html.ActionLink("Detalles de ordenes", "Details") </td>
+                <td> @Html.ActionLink("Editar", "UpdateAuto") </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+
+
 

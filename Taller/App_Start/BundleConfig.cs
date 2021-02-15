@@ -1,5 +1,6 @@
-﻿using System.Web;
+﻿using AutoMapper;
 using System.Web.Optimization;
+using Taller.ConfigMapper;
 
 namespace Taller
 {
@@ -25,6 +26,7 @@ namespace Taller
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
         }
     }
 }
