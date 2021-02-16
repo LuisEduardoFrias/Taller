@@ -16,7 +16,7 @@ namespace Taller.Models
         [Column(TypeName = "varchar(11)")]
         [Required]
         public string Mecanico_Id { get; set; }
-        
+
         [Required]
         public int Auto_Id { get; set; }
         

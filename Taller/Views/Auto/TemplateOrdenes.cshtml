@@ -1,0 +1,68 @@
+﻿@model List<Taller.Dtos.ShowOrdenDto>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <div style="width:100%; margin-top:10px;">
+
+                    <h5 class="modal-title" id="exampleModalLongTitle" style="text-align:center;">ORDENES</h5>
+
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <table class="table">
+
+                    <thead>
+
+                        <tr>
+
+                            <td>@Html.Label("FECHA")</td>
+                            <td>@Html.Label("CLIENTE")</td>
+                            <td>@Html.Label("AUTO")</td>
+                            <td>@Html.Label("MECANICO")</td>
+                            <td>@Html.Label("SERVICIO")</td>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (Taller.Dtos.ShowOrdenDto orden in Model)
+                        {
+                            <tr>
+
+                                <td> @orden.Fecha </td>
+                                <td> @orden.Auto.Cliente.Nombre </td>
+                                <td> @orden.Auto.Marca - @orden.Auto.Modelo </td>
+                                <td> @orden.Mecanico.Nombre </td>
+                                <td> @orden.Servicio.Nombre</td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+
+                </table>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

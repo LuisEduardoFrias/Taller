@@ -19,7 +19,7 @@ namespace Taller.Models
         [Required]
         public int Edad { get; set; }
 
-        [Column(TypeName = "Date")]
+        [Column(TypeName = "date")]
         [Required]
         public DateTime FechaNacimiento { get; set; }
 
@@ -29,8 +29,8 @@ namespace Taller.Models
         [ForeignKey("TipoMecanico_Id")]
         public TipoMecanico TipoMecanico { get; set; }
 
-
         public ICollection<Orden> Ordenes { get; set; }
 
     }
+
 }

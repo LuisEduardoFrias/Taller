@@ -41,7 +41,7 @@ namespace Taller.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 
-                    b.Property<string>("Modelos")
+                    b.Property<string>("Modelo")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
 

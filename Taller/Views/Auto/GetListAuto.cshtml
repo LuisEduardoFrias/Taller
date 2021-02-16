@@ -2,11 +2,12 @@
 
 @{
     ViewBag.Title = "GetListAuto";
+    int Index = 0, c = 0;
 }
 
 
 <div style="position:relative; top:50px;">
-    @Html.ActionLink("Volver", "Home", "Home", new { @class = "btn btn-primary", @style = "display:inline;" })
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
 </div>
 
 
@@ -31,6 +32,7 @@
             <td>@Html.Label("COLOR")</td>
             <td>@Html.Label("PLACA")</td>
             <td>@Html.Label("CLIENTE")</td>
+            <td>@Html.Label("OPCIONES")</td>
 
         </tr>
 
@@ -38,26 +40,29 @@
 
     <tbody>
 
+
         @foreach (Taller.Dtos.ShowAutoDto auto in Model)
         {
             <tr>
 
                 <td> @auto.Marca </td>
-                <td> @auto.Modelos </td>
+                <td> @auto.Modelo </td>
                 <td> @auto.Años </td>
                 <td> @auto.Color </td>
                 <td> @auto.Placa </td>
-                <td> cliente tal@*@auto.Cliente.Nombre*@ </td>
-                <td> @Html.ActionLink("Detalles de ordenes", "Details") </td>
-                <td> @Html.ActionLink("Editar", "UpdateAuto") </td>
+                <td> @auto.Cliente.Nombre</td>
+                <td>
+                    <button type="button" class="btn btn-info btn-lg" id="@c" data-toggle="modal" data-target="#exampleModalLong"> Detalles de ordenes </button>
+                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                </td>
 
             </tr>
+
+            c++;
         }
 
     </tbody>
 
 </table>
 
-
-
-
+@Html.Partial("TemplateOrdenes", Model[0].Ordenes)

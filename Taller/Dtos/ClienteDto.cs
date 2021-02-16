@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Taller.Dtos
 {
-    public class ClienteDto
+    public class CreateClienteDto
     {
         public string Cedula { get; set; }
 
@@ -17,6 +17,18 @@ namespace Taller.Dtos
         [Required]
         public bool Estado { get; set; }
 
-        public ICollection<ShowAutoDto> Autos { get; set; }
     }
+
+    public class ShowClienteDto : UpdateClienteDto
+    {
+
+        public ICollection<ShowAutoDto> Autos { get; set; }
+
+    }
+
+    public class UpdateClienteDto : CreateClienteDto
+    {
+
+    }
+
 }

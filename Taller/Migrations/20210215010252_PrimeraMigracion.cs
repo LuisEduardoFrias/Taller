@@ -54,7 +54,7 @@ namespace Taller.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Marca = table.Column<string>(type: "varchar(50)", nullable: false),
-                    Modelos = table.Column<string>(type: "varchar(50)", nullable: false),
+                    Modelo = table.Column<string>(type: "varchar(50)", nullable: false),
                     Años = table.Column<byte>(type: "tinyint", nullable: false),
                     Color = table.Column<string>(type: "varchar(20)", nullable: false),
                     Placa = table.Column<string>(type: "varchar(10)", nullable: false),

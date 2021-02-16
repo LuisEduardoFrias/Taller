@@ -16,7 +16,7 @@ namespace Taller.Models
 
         [Column(TypeName = "varchar(50)")]
         [Required]
-        public string Modelos { get; set; }
+        public string Modelo { get; set; }
 
         [Column(TypeName = "tinyint")]
         [Required]

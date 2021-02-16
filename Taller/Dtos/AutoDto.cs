@@ -10,7 +10,7 @@ namespace Taller.Dtos
         public string Marca { get; set; }
 
         [Required]
-        public string Modelos { get; set; }
+        public string Modelo { get; set; }
 
         [Required]
         public int Años { get; set; }
@@ -28,9 +28,9 @@ namespace Taller.Dtos
 
     public class ShowAutoDto : UpdateAutoDto
     {
-        public ClienteDto Cliente { get; set; }
+        public ShowClienteDto Cliente { get; set; }
 
-        public ICollection<OrdenDto> Ordenes { get; set; }
+        public ICollection<ShowOrdenDto> Ordenes { get; set; }
 
     }
 

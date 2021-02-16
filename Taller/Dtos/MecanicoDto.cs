@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Taller.Dtos
 {
-    public class MecanicoDto
+    public class CreateMecanicoDto
     {
         public string Cedula { get; set; }
 
@@ -19,10 +19,16 @@ namespace Taller.Dtos
 
         [Required]
         public int TipoMecanico_Id { get; set; }
+    }
 
-        public TipoMecanicoDto TipoMecanico { get; set; }
+    public class ShowMecanicoDto : UpdateMecanicoDto
+    {
+        public ICollection<ShowOrdenDto> Ordenes { get; set; }
+    }
 
-        public ICollection<OrdenDto> Ordenes { get; set; }
+    public class UpdateMecanicoDto : CreateMecanicoDto
+    {
 
+        public CreateTipoMecanicoDto TipoMecanico { get; set; }
     }
 }

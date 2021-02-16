@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Taller.Dtos
 {
-    public class ServicioDto
+    public class CreateServicioDto
     {
         public int Codigo { get; set; }
 
@@ -13,7 +13,17 @@ namespace Taller.Dtos
 
         [Required]
         public decimal Costo { get; set; }
-
-        public ICollection<OrdenDto> Ordenes { get; set; }
     }
+
+    public class ShowServicioDto : UpdateServicioDto
+    {
+        public ICollection<ShowOrdenDto> Ordenes { get; set; }
+    }
+
+    public class UpdateServicioDto : CreateServicioDto
+    {
+
+    }
+
+
 }

@@ -4,13 +4,21 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Taller.Dtos
 {
-    public class TipoMecanicoDto
+    public class CreateTipoMecanicoDto
     {
-        public int Id { get; set; }
-
         [Required]
         public string Tiepo { get; set; }
+    }
 
-        public ICollection<MecanicoDto> Mecanicos { get; set; }
+    public class ShowTipoMecanicoDto : UpdateTipoMecanicoDto
+    {
+        public ICollection<ShowMecanicoDto> Mecanicos { get; set; }
+
+    }
+
+    public class UpdateTipoMecanicoDto : CreateTipoMecanicoDto
+    {
+        [Required]
+        public int Id { get; set; }
     }
 }

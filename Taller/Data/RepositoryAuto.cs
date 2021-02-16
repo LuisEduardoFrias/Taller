@@ -64,8 +64,13 @@ namespace Taller.Data
         /// <returns>retorna una lista un objerto de traferencia de datos auto </returns>
         public async Task<List<ShowAutoDto>> ShowListAutoDto()
         {
-            List<Auto> ListAuto = await _context.Autos.Include(x => x.Ordenes).OrderBy(x => x.Marca).ToListAsync();
-
+            List<Auto> ListAuto = await _context.Autos
+                                                      .Include(x => x.Cliente)
+                                                      .Include(x => x.Ordenes).ThenInclude(x => x.Servicio)
+                                                      .Include(x => x.Ordenes).ThenInclude(x => x.Mecanico)
+                                                      .OrderBy(x => x.Marca)
+                                                      .ToListAsync();
+                
             return _mappear.Map<List<ShowAutoDto>>(ListAuto);
         }
 
