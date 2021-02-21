@@ -12,7 +12,7 @@ namespace Taller.Models
 
         [Column(TypeName = "varchar(30)")]
         [Required]
-        public string Tiepo { get; set; }
+        public string Tipo { get; set; }
 
         public ICollection<Mecanico> Mecanicos { get; set; }
     }

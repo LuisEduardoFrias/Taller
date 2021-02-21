@@ -18,6 +18,9 @@ namespace Taller.Dtos
         [Required]
         public int Servicio_Id { get; set; }
 
+        [Required]
+        public decimal CostoServicio { get; set; }
+
     }
 
     public class ShowOrdenDto : UpdateOrdenDto
@@ -27,6 +30,13 @@ namespace Taller.Dtos
         public ShowAutoDto Auto { get; set; }
 
         public ShowServicioDto Servicio { get; set; }
+
+        public string Mecanico_ => $"{Mecanico.Nombre}";
+
+        public string Auto_ => $"{Auto.Placa} - {Auto.Marca} - {Auto.Modelo}";
+
+        public string Servicio_ => $"{Servicio.Nombre}";
+
     }
 
     public class UpdateOrdenDto : CreateOrdenDto

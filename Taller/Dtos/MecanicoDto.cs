@@ -12,7 +12,7 @@ namespace Taller.Dtos
         public string Nombre { get; set; }
 
         [Required]
-        public int Edad { get; set; }
+        public bool Estado { get; set; }
 
         [Required]
         public DateTime FechaNacimiento { get; set; }
@@ -23,12 +23,17 @@ namespace Taller.Dtos
 
     public class ShowMecanicoDto : UpdateMecanicoDto
     {
+        public CreateTipoMecanicoDto TipoMecanico { get; set; }
+
+        public string TipoMecanico_ => $"{TipoMecanico.Tipo}";
+
+        public int Edad => DateTime.Now.Year - FechaNacimiento.Year;
+
         public ICollection<ShowOrdenDto> Ordenes { get; set; }
     }
 
     public class UpdateMecanicoDto : CreateMecanicoDto
     {
 
-        public CreateTipoMecanicoDto TipoMecanico { get; set; }
     }
 }

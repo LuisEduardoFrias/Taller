@@ -12,9 +12,13 @@ namespace Taller.Models
         [Key]
         public string Cedula { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
+        [Column(TypeName = "varchar(20)")]
         [Required]
         public string Nombre { get; set; }
+
+        [Column(TypeName = "varchar(20)")]
+        [Required]
+        public string Apellido { get; set; }
 
         [Column(TypeName = "Date")]
         [Required]

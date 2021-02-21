@@ -21,9 +21,12 @@ namespace Taller.Dtos
 
     public class ShowClienteDto : UpdateClienteDto
     {
+        [Required]
+        public string FechaNacimiento_ => $"{FechaNacimiento.Date.ToString("dd/MM/yyyy")}";
+
+        public int Edad => DateTime.Now.Year - FechaNacimiento.Year;
 
         public ICollection<ShowAutoDto> Autos { get; set; }
-
     }
 
     public class UpdateClienteDto : CreateClienteDto

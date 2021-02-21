@@ -1,0 +1,63 @@
+﻿@model List<Taller.Dtos.ShowOrdenDto>
+
+@{
+    ViewBag.Title = "GetListOrdenes";
+    int Index = 0, c = 0;
+}
+
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">Ordenes</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("FECHA")</td>
+            <td>@Html.Label("MECANICO")</td>
+            <td>@Html.Label("AUTO")</td>
+            <td>@Html.Label("COSTO DEL SERVICIO")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (Taller.Dtos.ShowOrdenDto orden in Model)
+        {
+            <tr>
+
+                <td> @orden.Fecha </td>
+                <td> @orden.Servicio_ </td>
+                <td> @orden.Mecanico_ </td>
+                <td> @orden.Auto_ </td>
+                <td> @orden.CostoServicio </td>
+
+                <td>
+                    <button type="button" class="btn btn-info btn-lg" id="@c" data-toggle="modal" data-target="#exampleModalLong"> Detalles de servicios </button>
+                </td>
+
+            </tr>
+
+
+            c++;
+        }
+
+    </tbody>
+
+</table>
+
+@Html.Partial("Template/ParcialViewPervicio", Model[0].Servicio)

@@ -29,7 +29,7 @@ namespace Taller.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            optionsBuilder.UseSqlServer(_connectionString);
-            //optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
+           //optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
         }
 
     }

@@ -1,0 +1,62 @@
+﻿@model List<Taller.Dtos.ShowMecanicoDto>
+
+@{
+    ViewBag.Title = "GetListMecanicos";
+}
+
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">Mecanicos</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("NOMBRE")</td>
+            <td>@Html.Label("CÉDULA")</td>
+            <td>@Html.Label("EDAD")</td>
+            <td>@Html.Label("FECHA DE NACIMIENTO")</td>
+            <td>@Html.Label("TIPO DE MECÁNICO")</td>
+            <td>@Html.Label("ESTADO")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+
+        @foreach (Taller.Dtos.ShowMecanicoDto mecanico in Model)
+        {
+            <tr>
+
+                <td> @mecanico.Nombre </td>
+                <td> @mecanico.Cedula </td>
+                <td> @mecanico.Edad </td>
+                <td> @mecanico.FechaNacimiento </td>
+                <td> @mecanico.TipoMecanico_ </td>
+                <td> @mecanico.Estado </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+

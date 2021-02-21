@@ -50,7 +50,7 @@
                 <td> @auto.Años </td>
                 <td> @auto.Color </td>
                 <td> @auto.Placa </td>
-                <td> @auto.Cliente.Nombre</td>
+                <td> @auto.Cliente_</td>
                 <td>
                     <button type="button" class="btn btn-info btn-lg" id="@c" data-toggle="modal" data-target="#exampleModalLong"> Detalles de ordenes </button>
                     @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
@@ -65,4 +65,4 @@
 
 </table>
 
-@Html.Partial("TemplateOrdenes", Model[0].Ordenes)
+@Html.Partial("Template/ParcialViewOrdenes", Model[0].Ordenes)

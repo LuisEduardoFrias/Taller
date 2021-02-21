@@ -23,13 +23,17 @@ namespace Taller.Models
         [Required]
         public int Servicio_Id { get; set; }
 
+        [Required]
+        public decimal CostoTotalServicio { get; set; }
+
         [ForeignKey("Mecanico_Id")]
         public Mecanico Mecanico { get; set; }
         
         [ForeignKey("Auto_Id")]
         public Auto Auto { get; set; }
-    
+
         [ForeignKey("Servicio_Id")]
         public Servicio Servicio { get; set; }
+
     }
 }

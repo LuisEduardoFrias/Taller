@@ -1,0 +1,56 @@
+﻿@model List<Taller.Dtos.ShowServicioDto>
+
+@{
+    ViewBag.Title = "GetListServicios";
+}
+
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">Servicios</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("CÓDIGO")</td>
+            <td>@Html.Label("NOMBRE")</td>
+            <td>@Html.Label("COSTO")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+
+        @foreach (Taller.Dtos.ShowServicioDto servicio in Model)
+        {
+            <tr>
+
+                <td> @servicio.Codigo </td>
+                <td> @servicio.Nombre </td>
+                <td> @servicio.Costo </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>

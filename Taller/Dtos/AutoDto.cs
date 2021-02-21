@@ -30,6 +30,8 @@ namespace Taller.Dtos
     {
         public ShowClienteDto Cliente { get; set; }
 
+        public string Cliente_ => $"{Cliente.Nombre }";
+
         public ICollection<ShowOrdenDto> Ordenes { get; set; }
 
     }

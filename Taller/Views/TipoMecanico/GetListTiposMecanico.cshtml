@@ -1,0 +1,51 @@
+﻿@model List<Taller.Dtos.ShowTipoMecanicoDto>
+
+@{
+    ViewBag.Title = "GetListMecanicos";
+}
+
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">Tipos de mecanicos</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("Tipo")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+
+        @foreach (Taller.Dtos.ShowTipoMecanicoDto tipo in Model)
+        {
+            <tr>
+
+                <td> @tipo.Tipo </td>
+                <td>
+                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>

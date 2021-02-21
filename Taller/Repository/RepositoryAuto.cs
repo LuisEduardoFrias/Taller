@@ -3,10 +3,13 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Taller.Data;
+//
 using Taller.Dtos;
 using Taller.Models;
+//
 
-namespace Taller.Data
+namespace Taller.Repository
 {
     public class RepositoryAuto
     {

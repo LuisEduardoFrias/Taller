@@ -1,0 +1,59 @@
+﻿@model List<Taller.Dtos.ShowClienteDto>
+
+@{
+    ViewBag.Title = "GetListClientes";
+}
+
+
+<div style="position:relative; top:50px;">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+</div>
+
+<div style="width:100%; margin-top:20px;">
+
+    <h2 style="text-align:center;">Clientes</h2>
+
+</div>
+
+<br />
+<hr />
+
+<table class="table">
+
+    <thead>
+
+        <tr>
+
+            <td>@Html.Label("NOMBRE")</td>
+            <td>@Html.Label("CÉDULA")</td>
+            <td>@Html.Label("EDAD")</td>
+            <td>@Html.Label("FECHA DE NACIMIENTO")</td>
+            <td>@Html.Label("ESTADO")</td>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (Taller.Dtos.ShowClienteDto auto in Model)
+         {
+            <tr>
+
+                <td> @auto.Nombre </td>
+                <td> @auto.Cedula </td>
+                <td> @auto.Edad </td>
+                <td> @auto.FechaNacimiento_ </td>
+                <td> @auto.Estado </td>
+
+                <td>
+                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                </td>
+
+            </tr>
+
+         }
+
+    </tbody>
+
+</table>
