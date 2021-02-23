@@ -11,6 +11,7 @@ namespace Taller.Data
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Mecanico> Mecanicos { get; set; }
         public DbSet<Orden> Ordenes { get; set; }
+        public DbSet<OrdenDetalle> DetallesOrden { get; set; }
         public DbSet<Servicio> Servicios { get; set; }
         public DbSet<TipoMecanico> TiposMecanico { get; set; }
 
@@ -28,8 +29,13 @@ namespace Taller.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           optionsBuilder.UseSqlServer(_connectionString);
-           //optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
+           //optionsBuilder.UseSqlServer(_connectionString);
+           optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
+        }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
 
     }

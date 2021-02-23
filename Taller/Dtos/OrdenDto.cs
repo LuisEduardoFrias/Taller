@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Taller.Dtos
@@ -29,14 +30,12 @@ namespace Taller.Dtos
 
         public ShowAutoDto Auto { get; set; }
 
-        public ShowServicioDto Servicio { get; set; }
-
         public string Mecanico_ => $"{Mecanico.Nombre}";
 
         public string Auto_ => $"{Auto.Placa} - {Auto.Marca} - {Auto.Modelo}";
 
-        public string Servicio_ => $"{Servicio.Nombre}";
-
+        public ICollection<ShowOrdenDetalleDto> OrdenDetalle { get; set; }
+            
     }
 
     public class UpdateOrdenDto : CreateOrdenDto

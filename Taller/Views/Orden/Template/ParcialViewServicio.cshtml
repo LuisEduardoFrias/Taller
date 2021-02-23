@@ -1,4 +1,4 @@
-﻿@model List<Taller.Dtos.ShowServicioDto>
+﻿@model List<Taller.Dtos.ShowOrdenDetalleDto>
 
 
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -39,15 +39,12 @@
 
                     <tbody>
 
-                        @foreach (Taller.Dtos.ShowServicioDto servicio in Model)
+                        @foreach (Taller.Dtos.ShowOrdenDetalleDto ordenDetalle in Model)
                         {
                             <tr>
-
-
-                                <td> @servicio.Codigo </td>
-                                <td> @servicio.Nombre </td>
-                                <td> @servicio.Costo </td>
-
+                                <td> @ordenDetalle.Servicio.Codigo </td>
+                                <td> @ordenDetalle.Servicio.Nombre </td>
+                                <td> @ordenDetalle.Servicio.Costo </td>
                             </tr>
                         }
 

@@ -69,7 +69,7 @@ namespace Taller.Repository
         {
             List<Auto> ListAuto = await _context.Autos
                                                       .Include(x => x.Cliente)
-                                                      .Include(x => x.Ordenes).ThenInclude(x => x.Servicio)
+                                                      .Include(x => x.Ordenes).ThenInclude(x => x.OrdenDetalle)
                                                       .Include(x => x.Ordenes).ThenInclude(x => x.Mecanico)
                                                       .OrderBy(x => x.Marca)
                                                       .ToListAsync();

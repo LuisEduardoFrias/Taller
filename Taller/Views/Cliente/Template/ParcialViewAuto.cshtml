@@ -1,8 +1,8 @@
-﻿@model List<Taller.Dtos.ShowOrdenDto>
+﻿@model List<Taller.Dtos.ShowAutoDto>
 
 
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    
+
     <div class="modal-dialog" role="document">
 
         <div class="modal-content">
@@ -29,10 +29,13 @@
 
                         <tr>
 
-                            <td>@Html.Label("FECHA")</td>
+                            <td>@Html.Label("MARCA")</td>
+                            <td>@Html.Label("MODELO")</td>
+                            <td>@Html.Label("AÑO")</td>
+                            <td>@Html.Label("COLOR")</td>
+                            <td>@Html.Label("PLACA")</td>
                             <td>@Html.Label("CLIENTE")</td>
-                            <td>@Html.Label("AUTO")</td>
-                            <td>@Html.Label("MECANICO")</td>
+                            <td>@Html.Label("OPCIONES")</td>
 
                         </tr>
 
@@ -40,14 +43,20 @@
 
                     <tbody>
 
-                        @foreach (Taller.Dtos.ShowOrdenDto orden in Model)
+
+                        @foreach (Taller.Dtos.ShowAutoDto auto in Model)
                         {
                             <tr>
 
-                                <td> @orden.Fecha </td>
-                                <td> @orden.Auto.Cliente.Nombre </td>
-                                <td> @orden.Auto.Marca - @orden.Auto.Modelo </td>
-                                <td> @orden.Mecanico.Nombre </td>
+                                <td> @auto.Marca </td>
+                                <td> @auto.Modelo </td>
+                                <td> @auto.Años </td>
+                                <td> @auto.Color </td>
+                                <td> @auto.Placa </td>
+                                <td> @auto.Cliente_</td>
+                                <td>
+                                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                                </td>
 
                             </tr>
                         }
@@ -64,3 +73,4 @@
     </div>
 
 </div>
+

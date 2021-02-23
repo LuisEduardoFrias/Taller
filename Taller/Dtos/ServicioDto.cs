@@ -17,7 +17,7 @@ namespace Taller.Dtos
 
     public class ShowServicioDto : UpdateServicioDto
     {
-        public ICollection<ShowOrdenDto> Ordenes { get; set; }
+        public ICollection<ShowOrdenDetalleDto> OrdenDetalle { get; set; }
     }
 
     public class UpdateServicioDto : CreateServicioDto

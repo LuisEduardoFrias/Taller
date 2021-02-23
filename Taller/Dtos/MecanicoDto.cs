@@ -23,9 +23,11 @@ namespace Taller.Dtos
 
     public class ShowMecanicoDto : UpdateMecanicoDto
     {
-        public CreateTipoMecanicoDto TipoMecanico { get; set; }
+        public ShowTipoMecanicoDto TipoMecanico { get; set; }
 
         public string TipoMecanico_ => $"{TipoMecanico.Tipo}";
+
+        public string FechaNacimiento_ => FechaNacimiento.ToString("dd/MM/yyyy");
 
         public int Edad => DateTime.Now.Year - FechaNacimiento.Year;
 

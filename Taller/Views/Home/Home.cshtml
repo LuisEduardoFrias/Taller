@@ -8,16 +8,16 @@
 
 <div style="width:100%; height:100%; display: inline-block; align-content:center;">
 
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE AUTO", "GetListAuto", "Auto"))
-
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE CIENTES", "GetListClientes", "Cliente"))
-
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE MECANICO", "GetListMecanicos", "Mecanico"))
-
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LAS ORDENES", "GetListOrdenes", "Orden"))
-
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LOS SERVICIOS", "GetListServicios", "Servicio"))
-
-    @Html.Partial("OpcionesMenu", new Tuple<string, string, string>("VER LOS TIPOS DE MECANICO", "GetListTiposMecanico", "TipoMecanico"))
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE AUTO", "GetListAuto", "Auto"))
+                   
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE CIENTES", "GetListClientes", "Cliente"))
+               
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LISTADO DE MECANICO", "GetListMecanicos", "Mecanico"))
+               
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LAS ORDENES", "GetListOrdenes", "Orden"))
+             
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LOS SERVICIOS", "GetListServicios", "Servicio"))
+       
+    @Html.Partial("Template/OpcionesMenu", new Tuple<string, string, string>("VER LOS TIPOS DE MECANICO", "GetListTiposMecanico", "TipoMecanico"))
 
 </div>

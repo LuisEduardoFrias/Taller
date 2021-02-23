@@ -70,7 +70,7 @@ namespace Taller.Repository
             List<Orden> ListOrden = await _context.Ordenes
                                                       .Include(x => x.Mecanico)
                                                       .Include(x => x.Auto)
-                                                      .Include(x => x.Servicio)
+                                                      .Include(x => x.OrdenDetalle)
                                                       .OrderBy(x => x.Fecha)
                                                       .ToListAsync();
 

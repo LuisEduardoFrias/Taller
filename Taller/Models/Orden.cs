@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,12 +20,10 @@ namespace Taller.Models
 
         [Required]
         public int Auto_Id { get; set; }
-        
-        [Required]
-        public int Servicio_Id { get; set; }
 
         [Required]
         public decimal CostoTotalServicio { get; set; }
+
 
         [ForeignKey("Mecanico_Id")]
         public Mecanico Mecanico { get; set; }
@@ -32,8 +31,7 @@ namespace Taller.Models
         [ForeignKey("Auto_Id")]
         public Auto Auto { get; set; }
 
-        [ForeignKey("Servicio_Id")]
-        public Servicio Servicio { get; set; }
+        public ICollection<OrdenDetalle> OrdenDetalle { get; set; }
 
     }
 }

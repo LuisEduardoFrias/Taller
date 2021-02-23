@@ -20,6 +20,7 @@ namespace Taller.Models
         [Required]
         public decimal Costo { get; set; }
 
-        public ICollection<Orden> Ordenes { get; set; }
+        public ICollection<OrdenDetalle> OrdenDetalle { get; set; }
+
     }
 }

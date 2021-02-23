@@ -12,6 +12,9 @@ namespace Taller.Dtos
         public string Nombre { get; set; }
 
         [Required]
+        public string Apellido { get; set; }
+
+        [Required]
         public DateTime FechaNacimiento { get; set; }
 
         [Required]

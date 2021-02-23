@@ -119,7 +119,7 @@ namespace Taller.Migrations
                     b.Property<int>("Auto_Id")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("CostoServicio")
+                    b.Property<decimal>("CostoTotalServicio")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Fecha")
@@ -129,18 +129,35 @@ namespace Taller.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(11)");
 
-                    b.Property<int>("Servicio_Id")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("Auto_Id");
 
                     b.HasIndex("Mecanico_Id");
 
+                    b.ToTable("Ordenes");
+                });
+
+            modelBuilder.Entity("Taller.Models.OrdenDetalle", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Orden_Id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Servicio_Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Orden_Id");
+
                     b.HasIndex("Servicio_Id");
 
-                    b.ToTable("Ordenes");
+                    b.ToTable("DetallesOrden");
                 });
 
             modelBuilder.Entity("Taller.Models.Servicio", b =>
@@ -207,9 +224,18 @@ namespace Taller.Migrations
                         .HasForeignKey("Mecanico_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Taller.Models.OrdenDetalle", b =>
+                {
+                    b.HasOne("Taller.Models.Orden", "Orden")
+                        .WithMany("OrdenDetalle")
+                        .HasForeignKey("Orden_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Taller.Models.Servicio", "Servicio")
-                        .WithMany("Ordenes")
+                        .WithMany("OrdenDetalle")
                         .HasForeignKey("Servicio_Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
