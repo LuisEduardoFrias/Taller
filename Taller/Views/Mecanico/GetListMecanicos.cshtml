@@ -5,8 +5,9 @@
 }
 
 
-<div style="position:relative; top:50px;">
-    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline;" })
+<div style="position:relative; top:50px; ">
+    @Html.ActionLink("Volver", "Home", "Home", null, new { @class = "btn btn-primary", @style = "display:inline; position:absolute; left:0px;" })
+    @Html.ActionLink("Crear un nuevo mecanico", "AddMecanico", "Mecanico", null, new { @class = "btn btn-primary", @style = "display:inline; position:absolute; right:0px;" })
 </div>
 
 <div style="width:100%; margin-top:20px;">
@@ -24,8 +25,8 @@
 
         <tr>
 
-            <td>@Html.Label("NOMBRE")</td>
             <td>@Html.Label("CÉDULA")</td>
+            <td>@Html.Label("NOMBRE")</td>
             <td>@Html.Label("EDAD")</td>
             <td>@Html.Label("FECHA DE NACIMIENTO")</td>
             <td>@Html.Label("TIPO DE MECÁNICO")</td>
@@ -42,15 +43,15 @@
         {
             <tr>
 
-                <td> @mecanico.Nombre </td>
                 <td> @mecanico.Cedula </td>
+                <td> @mecanico.Nombre </td>
                 <td> @mecanico.Edad </td>
                 <td> @mecanico.FechaNacimiento_ </td>
                 <td> @mecanico.TipoMecanico_ </td>
                 <td> @mecanico.Estado </td>
 
                 <td>
-                    @Html.ActionLink("Editar", "UpdateAuto", null, new { @class = "btn btn-success btn-lg" })
+                    @Html.ActionLink("Editar", "UpdateMecanico", "Mecanico", new { @mecanico.Cedula }, new { @class = "btn btn-success btn-lg" })
                 </td>
 
             </tr>

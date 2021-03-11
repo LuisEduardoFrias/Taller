@@ -77,13 +77,13 @@ namespace Taller.Controllers
         /// <param name="id">Id del registro que se va a actualizar en la base de datos</param>
         /// <returns>Retorna un vista</returns>
         [HttpGet]
-        public async Task<ActionResult> UpdateMecanico(string cedula, UpdateMecanicoDto Mecanico, bool error = false)
+        public async Task<ActionResult> UpdateMecanico(string cedula, UpdateMecanicoDto Mecanico = null, bool error = false)
         {
             if (cedula == null)
             {
                 if (Mecanico == null)
-                    return RedirectToAction("GetListMecanico", new { @error = true });
                 else
+                    return RedirectToAction("GetListMecanico", new { @error = true });
                 {
                     ViewBag.error = error;
 

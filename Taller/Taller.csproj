@@ -255,7 +255,7 @@
       <DependentUpon>20210223144347_Migracion Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\TallerDbContextModelSnapshot.cs" />
-    <Compile Include="Models\OrdenDetalle.cs" />
+    <Compile Include="Views\Mecanico\Models\OrdenDetalle.cs" />
     <Compile Include="Repository\RepositoryAuto.cs" />
     <Compile Include="Data\TallerDbContext.cs" />
     <Compile Include="Dtos\AutoDto.cs" />
@@ -265,12 +265,12 @@
     <Compile Include="Dtos\ServicioDto.cs" />
     <Compile Include="Dtos\TipoMecanicoDto.cs" />
     <Compile Include="ConfigMapper\MapperCongfing.cs" />
-    <Compile Include="Models\Auto.cs" />
-    <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Mecanico.cs" />
-    <Compile Include="Models\Orden.cs" />
-    <Compile Include="Models\Servicio.cs" />
-    <Compile Include="Models\TipoMecanico.cs" />
+    <Compile Include="Views\Mecanico\Models\Auto.cs" />
+    <Compile Include="Views\Mecanico\Models\Cliente.cs" />
+    <Compile Include="Views\Mecanico\Models\Mecanico.cs" />
+    <Compile Include="Views\Mecanico\Models\Orden.cs" />
+    <Compile Include="Views\Mecanico\Models\Servicio.cs" />
+    <Compile Include="Views\Mecanico\Models\TipoMecanico.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
