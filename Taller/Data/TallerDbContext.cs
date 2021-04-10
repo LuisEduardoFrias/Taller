@@ -5,7 +5,7 @@ namespace Taller.Data
 {
     public class TallerDbContext:DbContext
     {
-        string _connectionString;
+        readonly string _connectionString;
 
         public DbSet<Auto> Autos { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
@@ -29,8 +29,8 @@ namespace Taller.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           //optionsBuilder.UseSqlServer(_connectionString);
-           optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
+           optionsBuilder.UseSqlServer(_connectionString);
+           //optionsBuilder.UseSqlServer(@"server=(localdb)\MSSQLLocalDB; database=TallerBD; Trusted_Connection=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder builder)

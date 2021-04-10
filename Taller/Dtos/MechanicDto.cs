@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace Taller.Dtos
 {
-    public class CreateMecanicoDto
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    //
+
+    public class CreateMechanicDto
     {
         public string Cedula { get; set; }
 
@@ -21,9 +23,9 @@ namespace Taller.Dtos
         public int TipoMecanico_Id { get; set; }
     }
 
-    public class ShowMecanicoDto : UpdateMecanicoDto
+    public class ShowMechanicDto : UpdateMechanicDto
     {
-        public ShowTipoMecanicoDto TipoMecanico { get; set; }
+        public ShowMechanicTypeDto TipoMecanico { get; set; }
 
         public string TipoMecanico_ => $"{TipoMecanico.Tipo}";
 
@@ -31,10 +33,10 @@ namespace Taller.Dtos
 
         public int Edad => DateTime.Now.Year - FechaNacimiento.Year;
 
-        public ICollection<ShowOrdenDto> Ordenes { get; set; }
+        public ICollection<ShowOrderDto> Ordenes { get; set; }
     }
 
-    public class UpdateMecanicoDto : CreateMecanicoDto
+    public class UpdateMechanicDto : CreateMechanicDto
     {
 
     }

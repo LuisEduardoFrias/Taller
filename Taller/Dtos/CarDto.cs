@@ -1,10 +1,11 @@
 ﻿
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 namespace Taller.Dtos
 {
-    public class CreateAutoDto
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    //
+
+    public class CreateCarDto
     {
         [Required]
         public string Marca { get; set; }
@@ -26,17 +27,17 @@ namespace Taller.Dtos
 
     }
 
-    public class ShowAutoDto : UpdateAutoDto
+    public class ShowCarDto : UpdateCarDto
     {
-        public ShowClienteDto Cliente { get; set; }
+        public ShowClientDto Cliente { get; set; }
 
         public string Cliente_ => $"{Cliente.Nombre }";
 
-        public ICollection<ShowOrdenDto> Ordenes { get; set; }
+        public ICollection<ShowOrderDto> Ordenes { get; set; }
 
     }
 
-    public class UpdateAutoDto : CreateAutoDto
+    public class UpdateCarDto : CreateCarDto
     {
         [Required]
         public int Id { get; set; }

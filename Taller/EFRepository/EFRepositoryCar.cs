@@ -1,21 +1,20 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryAuto
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+    public class EFRepositoryCar : IRepositoryCar
     {
 
-        private static RepositoryAuto Instance;
-        private TallerDbContext _context;
+        private static EFRepositoryCar Instance;
+        private readonly TallerDbContext _context;
         private readonly IMapper _mappear;
 
 
@@ -24,24 +23,43 @@ namespace Taller.Repository
         /// </summary>
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de automapper</param>
-        /// <returns>retornar una instancia del repositorioauto</returns>
-        public static RepositoryAuto GetInstance(TallerDbContext context, IMapper mapper)
+        /// <returns>retornar una instancia del EFrepositorioauto</returns>
+        public static IRepositoryCar GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryAuto(context,mapper);
-
-            Instance._context = context;
+                Instance = new EFRepositoryCar(context,mapper);
 
             return Instance;
         }
 
-
-        private RepositoryAuto(TallerDbContext context, IMapper mappear)
+        private EFRepositoryCar(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
+        public Task<ShowCarDto> GetCarPerIdAsync(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<List<ShowCarDto>> ShowListCarAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateCarAsync(CreateCarDto CarDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateCarAsync(UpdateCarDto CarDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        /*
+         
 
 
         /// <summary>
@@ -115,6 +133,6 @@ namespace Taller.Repository
             return true;
         }
 
-
+         */
     }
 }

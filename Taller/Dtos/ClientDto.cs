@@ -1,10 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace Taller.Dtos
 {
-    public class CreateClienteDto
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    //
+
+    public class CreateClientDto
     {
         public string Cedula { get; set; }
 
@@ -22,17 +24,17 @@ namespace Taller.Dtos
 
     }
 
-    public class ShowClienteDto : UpdateClienteDto
+    public class ShowClientDto : UpdateClientDto
     {
         [Required]
-        public string FechaNacimiento_ => $"{FechaNacimiento.Date.ToString("dd/MM/yyyy")}";
+        public string FechaNacimiento_ => FechaNacimiento.ToString("dd/MM/yyyy");
 
         public int Edad => DateTime.Now.Year - FechaNacimiento.Year;
 
-        public ICollection<ShowAutoDto> Autos { get; set; }
+        public ICollection<ShowCarDto> Autos { get; set; }
     }
 
-    public class UpdateClienteDto : CreateClienteDto
+    public class UpdateClientDto : CreateClientDto
     {
 
     }

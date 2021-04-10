@@ -1,20 +1,19 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryServicio
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+    public class EFRepositoryService : IRepositoryService
     {
 
-        private static RepositoryServicio Instance;
+        private static EFRepositoryService Instance;
         private TallerDbContext _context;
         private readonly IMapper _mappear;
 
@@ -25,24 +24,45 @@ namespace Taller.Repository
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de Serviciomapper</param>
         /// <returns>retornar una instancia del repositorioServicio</returns>
-        public static RepositoryServicio GetInstance(TallerDbContext context, IMapper mapper)
+        public static EFRepositoryService GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryServicio(context, mapper);
+                Instance = new EFRepositoryService(context, mapper);
 
             Instance._context = context;
 
             return Instance;
         }
 
-
-        private RepositoryServicio(TallerDbContext context, IMapper mappear)
+        private EFRepositoryService(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
+        public Task<ShowServiceDto> GetServicePerId(int code)
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public Task<List<ShowServiceDto>> ShowListServiceDto()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateServiceDto(CreateServiceDto ServiceDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateServiceDto(UpdateServiceDto ServiceDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+
+        /*
 
         /// <summary>
         /// Busca un Servicio segun un Id obtenido
@@ -110,7 +130,7 @@ namespace Taller.Repository
                 return false;
 
             return true;
-        }
+        }*/
 
 
     }

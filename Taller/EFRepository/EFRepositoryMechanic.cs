@@ -1,20 +1,20 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryMecanico
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+
+    public class EFRepositoryMechanic : IRepositoryMechanic
     {
 
-        private static RepositoryMecanico Instance;
+        private static EFRepositoryMechanic Instance;
         private TallerDbContext _context;
         private readonly IMapper _mappear;
 
@@ -25,24 +25,43 @@ namespace Taller.Repository
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de Mecanicomapper</param>
         /// <returns>retornar una instancia del repositorioMecanico</returns>
-        public static RepositoryMecanico GetInstance(TallerDbContext context, IMapper mapper)
+        public static EFRepositoryMechanic GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryMecanico(context, mapper);
+                Instance = new EFRepositoryMechanic(context, mapper);
 
             Instance._context = context;
 
             return Instance;
         }
 
+        public Task<ShowMechanicDto> GetMechanicPerId(string identificationCard)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        private RepositoryMecanico(TallerDbContext context, IMapper mappear)
+        public Task<List<ShowMechanicDto>> ShowListMechanicAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateMechanic(CreateMechanicDto MechanicDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateMechanic(UpdateMechanicDto MechanicDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private EFRepositoryMechanic(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
-
+        /*
 
         /// <summary>
         /// Busca un Mecanico segun un Id obtenido
@@ -112,7 +131,7 @@ namespace Taller.Repository
                 return false;
 
             return true;
-        }
+        }*/
 
 
     }

@@ -1,20 +1,19 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryCliente
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+    public class EFRepositoryClient : IRepositoryClient
     {
 
-        private static RepositoryCliente Instance;
+        private static EFRepositoryClient Instance;
         private TallerDbContext _context;
         private readonly IMapper _mappear;
 
@@ -25,25 +24,47 @@ namespace Taller.Repository
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de Clientemapper</param>
         /// <returns>retornar una instancia del repositorioCliente</returns>
-        public static RepositoryCliente GetInstance(TallerDbContext context, IMapper mapper)
+        public static EFRepositoryClient GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryCliente(context, mapper);
+                Instance = new EFRepositoryClient(context, mapper);
 
             Instance._context = context;
 
             return Instance;
         }
 
-
-        private RepositoryCliente(TallerDbContext context, IMapper mappear)
+        private EFRepositoryClient(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
 
+        public Task<ShowClientDto> GetClientPerIdAsync(string identificationCard)
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public Task<List<ShowClientDto>> ShowListClientAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateClientAsync(CreateClientDto ClientDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateClientAsync(UpdateClientDto ClientDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+
+        /*
+         * 
         /// <summary>
         /// Busca un Cliente segun un Id obtenido
         /// </summary>
@@ -112,6 +133,7 @@ namespace Taller.Repository
             return true;
         }
 
+         */
 
     }
 }

@@ -1,20 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-using AutoMapper;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryTipoMecanico
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+    public class EFRepositoryMechanicType : IRepositoryMechanicType
     {
 
-        private static RepositoryTipoMecanico Instance;
+        private static EFRepositoryMechanicType Instance;
         private TallerDbContext _context;
         private readonly IMapper _mappear;
 
@@ -25,25 +24,46 @@ namespace Taller.Repository
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de TipoMecanicomapper</param>
         /// <returns>retornar una instancia del repositorioTipoMecanico</returns>
-        public static RepositoryTipoMecanico GetInstance(TallerDbContext context, IMapper mapper)
+        public static EFRepositoryMechanicType GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryTipoMecanico(context, mapper);
+                Instance = new EFRepositoryMechanicType(context, mapper);
 
             Instance._context = context;
 
             return Instance;
         }
 
-
-        private RepositoryTipoMecanico(TallerDbContext context, IMapper mappear)
+        private EFRepositoryMechanicType(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
+        public Task<ShowMechanicTypeDto> GetTMechanicTypePerId(int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<List<ShowMechanicTypeDto>> ShowListTMechanicTypeDto()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateTMechanicTypeDto(CreateMechanicTypeDto TMechanicTypeDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateTMechanicTypeDto(UpdateMechanicTypeDto TMechanicTypeDto)
+        {
+            throw new System.NotImplementedException();
+        }
 
 
+
+
+        /*
         /// <summary>
         /// Busca un TipoMecanico segun un Id obtenido
         /// </summary>
@@ -110,7 +130,7 @@ namespace Taller.Repository
                 return false;
 
             return true;
-        }
+        }*/
 
 
     }

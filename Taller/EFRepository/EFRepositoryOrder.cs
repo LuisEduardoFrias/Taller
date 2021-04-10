@@ -1,20 +1,19 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Taller.Data;
-//
-using Taller.Dtos;
-using Taller.Models;
-//
-
-namespace Taller.Repository
+﻿
+namespace Taller.EFRepository
 {
-    public class RepositoryOrden
+    using AutoMapper;
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
+    using Taller.Data;
+    //
+    using Taller.Dtos;
+    using Taller.Interface;
+    //
+
+    public class EFRepositoryOrder : IRepositoryOrder
     {
 
-        private static RepositoryOrden Instance;
+        private static EFRepositoryOrder Instance;
         private TallerDbContext _context;
         private readonly IMapper _mappear;
 
@@ -25,25 +24,43 @@ namespace Taller.Repository
         /// <param name="context">Una instancia del contexto de datos</param>
         /// <param name="mapper">una instancia de Ordenmapper</param>
         /// <returns>retornar una instancia del repositorioOrden</returns>
-        public static RepositoryOrden GetInstance(TallerDbContext context, IMapper mapper)
+        public static EFRepositoryOrder GetInstance(TallerDbContext context, IMapper mapper)
         {
             if (Instance is null)
-                Instance = new RepositoryOrden(context, mapper);
+                Instance = new EFRepositoryOrder(context, mapper);
 
             Instance._context = context;
 
             return Instance;
         }
 
+        public Task<ShowOrderDto> GetOrderPerIdAsync(int id)
+        {
+            throw new System.NotImplementedException();
+        }
 
-        private RepositoryOrden(TallerDbContext context, IMapper mappear)
+        public Task<List<ShowOrderDto>> ShowListOrderAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> CreateOrderAsync(CreateOrderDto OrderDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> UpdateOrderAsync(UpdateOrderDto OrderDto)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private EFRepositoryOrder(TallerDbContext context, IMapper mappear)
         {
             _context = context;
             _mappear = mappear;
         }
 
-
-
+        /*
         /// <summary>
         /// Busca un Orden segun un Id obtenido
         /// </summary>
@@ -113,8 +130,7 @@ namespace Taller.Repository
                 return false;
 
             return true;
-        }
-
+        }*/
 
     }
 }

@@ -10,17 +10,11 @@ using Taller.Repository;
 
 namespace Taller.Controllers
 {
-    public class AutoController : Controller
+    public class AutoController : BaseController
     {
-        private readonly TallerDbContext _context;
-        private readonly IMapper _mapper;
 
-        
-
-        public AutoController(TallerDbContext context, IMapper mapper)
+        public AutoController(TallerDbContext context, IMapper mapper, DataAccess dataAccess) : base (context, mapper, dataAccess)
         {
-            _context = context;
-            _mapper = mapper;
         }
 
 
@@ -31,7 +25,7 @@ namespace Taller.Controllers
         /// <returns>Retorna un vista</returns>
         [HttpGet]
         public async Task<ViewResult> GetListAuto(bool error = false) =>
-            View(await RepositoryAuto.GetInstance(_context, _mapper).ShowListAutoDto() );
+            View(await RepositoryAuto.ShowListAutoAsync() );
 
 
 
